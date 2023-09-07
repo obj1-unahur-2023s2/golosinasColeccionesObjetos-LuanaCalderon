@@ -79,7 +79,7 @@ object golosinaBaniada {
 	}
 	method precio() = golosinaBase.precio() + 2
 	method sabor() = golosinaBase.sabor()
-	method contieneGluten() = golosinaBase.contieneGluten()
+	method libreDeGluten() = golosinaBase.libreDeGluten()
 	method recibirMordisco() {
 		if (nMordiscos < 2) {
         golosinaBase.recibirMordisco()  // Dar un mordisco a la golosina base
@@ -98,9 +98,10 @@ object pastillaTuttiFrutti {
 	const mordisco = {sabor = sabores.get(nMordiscos%3)}
 	
 	method precio() = if(contieneGluten){10}else{7}
-	method sabor() = sabor
+	method sabor() = sabores
 	method peso() = 5
 	method mordisco() = mordisco
+	method libreDeGluten() = false
 	
 	method recibirMordisco() {
 		nMordiscos ++

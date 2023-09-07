@@ -1,6 +1,2 @@
-
-test "testX" {
-
-	assert.that(true)
-
-}
+import golosinas.*
+import sabores.*
