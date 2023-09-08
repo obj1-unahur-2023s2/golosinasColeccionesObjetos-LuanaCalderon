@@ -28,12 +28,6 @@ object mariano {
 	
 	method gastoEn(sabor) = golosinas.filter({golo => golo.sabor() == sabor})
 	  
-	method golosinasFaltantes(golosinasDeseadas) {} // no entendi
 	
-	method saborMasPopular() {}
-	
-	method saborMasPesado() {}
-	
-	method comproYDesecho(golosina) {}
 		
 }
