@@ -1,32 +1,33 @@
 import golosinas.*
 import sabores.*
 
+
 object mariano {
-	const golosinas = []
+	const bolsaDeGolosinas = []
 	
-	method comprar(unaGolosina) = golosinas.add(unaGolosina)
+	method comprar(unaGolosina) = bolsaDeGolosinas.add(unaGolosina)
 	
-	method desechar(unaGolosina) = golosinas.remove(unaGolosina)
+	method desechar(unaGolosina) = bolsaDeGolosinas.remove(unaGolosina)
 	
-	method cantidadDeGolosinas() = golosinas.size()
+	method cantidadDeGolosinas() = bolsaDeGolosinas.size()
 	
-	method tieneLaGolosina(unaGolosina) = golosinas.contains(unaGolosina)
+	method tieneLaGolosina(unaGolosina) = bolsaDeGolosinas.contains(unaGolosina)
 	
-	method probarGolosinas() = golosinas.forEach({golosina => golosina.recibirMordisco()})
+	method probarGolosinas() = bolsaDeGolosinas.forEach({golosina => golosina.recibirMordisco()})
 	
-	method hayGolosinaSinTACC() = golosinas.any({golo => not(golo.contieneGluten())})
+	method hayGolosinaSinTACC() = bolsaDeGolosinas.any({golo => not(golo.libreDeGluten())})
 	
-	method preciosCuidados() = golosinas.all({golo => golo.precio() <= 10})
+	method preciosCuidados() = bolsaDeGolosinas.all({golo => golo.precio() <= 10})
 	
-	method golosinaDeSabor(unSabor) = golosinas.find({golosina => golosina.sabor() == unSabor})
+	method golosinaDeSabor(unSabor) = bolsaDeGolosinas.find({golosina => golosina.sabor() == unSabor})
 	
-	method sabores() = golosinas.map({golosina => golosina.sabor()}).asSet() 
+	method sabores() = bolsaDeGolosinas.map({golosina => golosina.sabor()}).asSet() 
 	
-	method golosinaMasCara() = golosinas.max({golo => golo.precio()})
+	method golosinaMasCara() = bolsaDeGolosinas.max({golo => golo.precio()})
 	
-	method pesoGolosinas() = golosinas.sum({golo => golo.peso()})
+	method pesoGolosinas() = bolsaDeGolosinas.sum({golo => golo.peso()})
 	
-	method gastoEn(sabor) = golosinas.filter({golo => golo.sabor() == sabor})
+	method gastoEn(sabor) = bolsaDeGolosinas.filter({golo => golo.sabor() == sabor})
 	  
 	
 		

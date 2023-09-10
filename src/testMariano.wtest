@@ -2,46 +2,40 @@ import mariano.*
 import golosinas.*
 import sabores.*
 
-describe "test de mariano" {
-	test "Probando a Mariano" {
+describe"test de mariano" {
+test "algunos test de mariano" {
+  chocolatin.asignarPeso(40)
 
-    chocolatin.asignarPeso(40)
+  mariano.comprar(chocolatin)
+  mariano.comprar(caramelo)
+  mariano.comprar(bombon)
 
-    mariano.comprar(chocolatin)
-    mariano.comprar(caramelo)
-    mariano.comprar(bombon)
+  assert.that(mariano.cantidadDeGolosinas() == 3)
 
-    assert.equals(3, mariano.cantidadDeGolosinas())
+  mariano.desechar(bombon)
 
-    mariano.desechar(bombon)
+  assert.that(mariano.cantidadDeGolosinas() == 2)
 
-    assert.equals(2, mariano.cantidadDeGolosinas())
+  mariano.comprar(bombon)
 
-    mariano.comprar(bombon)
+  assert.that(mariano.tieneLaGolosina(chocolatin))
+  assert.that(!mariano.tieneLaGolosina(chupetin))
 
-    assert.that(mariano.tieneLaGolosina(chocolatin))
-    assert.notThat(mariano.tieneLaGolosina(chupetin))
+  mariano.probarGolosinas()
 
-    mariano.probarGolosinas()
+  assert.that(mariano.hayGolosinaSinTACC())
 
-    assert.equals([38, 4, 11], mariano.pesoGolosinas())
+  assert.that(!mariano.preciosCuidados())
 
-    assert.that(mariano.hayGolosinaSinTACC())
+  assert.that(mariano.golosinaDeSabor(chocolate) == chocolatin)
 
-    assert.notThat(mariano.preciosCuidados())
+  assert.that(mariano.golosinaDeSabor(frutilla) == [caramelo, bombon])
 
-    assert.equals(chocolatin, mariano.golosinaDeSabor(chocolate))
+  assert.that(mariano.sabores() == [chocolate, frutilla])
 
-    assert.equals([caramelo, bombon], mariano.gastoEn(frutilla))
+  assert.that(mariano.golosinaMasCara() == chocolatin)
 
-    assert.equals(#{chocolate, frutilla}, mariano.sabores())
-
-    assert.equals(chocolatin, mariano.golosinaMasCara())
-
-    assert.equals(55, mariano.pesoGolosinas())
-
-    assert.equals(#{alfajor, chupetin}, mariano.gastoEn(#{alfajor, bombon, chocolatin, chupetin}))
+  assert.that(mariano.pesoGolosinas() == 55)
 
 }
-	
 }
